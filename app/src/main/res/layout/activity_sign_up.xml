@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_login"
+    android:id="@+id/activity_sign_up"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.bruger.mobilesystemproject.Login">
+    tools:context="com.example.bruger.mobilesystemproject.SignUp">
 
     <TextView
         android:layout_width="wrap_content"
@@ -17,15 +17,15 @@
         android:text="Password"
         android:id="@+id/textView2"
         android:layout_centerVertical="true"
-        android:layout_alignRight="@+id/textView"
-        android:layout_alignEnd="@+id/textView" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:ems="10"
-        android:id="@+id/password"
+        android:id="@+id/signPassword"
         android:layout_below="@+id/textView2"
         android:layout_alignParentLeft="true" />
 
@@ -37,14 +37,15 @@
         android:id="@+id/textView"
         android:layout_below="@+id/editText3"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="48dp" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textEmailAddress"
         android:ems="10"
-        android:id="@+id/username"
+        android:id="@+id/signUsername"
         android:layout_below="@+id/textView"
         android:layout_alignParentLeft="true" />
 
@@ -55,29 +56,17 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="52dp"
-        android:text="Welcome to The Harry Potter Festival"
+        android:text="Welcome New User"
         android:textSize="32sp"/>
 
     <Button
-        style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Register"
-        android:id="@+id/register"
-        android:onClick="register"
-        android:layout_below="@+id/login"
-        android:layout_toEndOf="@+id/textView2"
-        android:layout_marginStart="43dp"
-        android:layout_marginTop="18dp" />
-
-    <Button
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:text="Login"
-        android:id="@+id/login"
-        android:onClick="login"
-        android:layout_marginTop="29dp"
-        android:layout_below="@+id/password"
+        android:text="Sign Up"
+        android:id="@+id/signUp"
+        android:onClick="onSignUp"
+        android:layout_marginTop="36dp"
+        android:layout_below="@+id/signPassword"
         android:layout_centerHorizontal="true" />
 
 
