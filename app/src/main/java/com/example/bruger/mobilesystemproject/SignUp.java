@@ -1,5 +1,7 @@
 package com.example.bruger.mobilesystemproject;
-
+/*
+    Inspiration from Nevethan's Bachelor Project (SmartBrace)
+ */
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -19,32 +21,39 @@ public class SignUp extends AppCompatActivity {
         setContentView(R.layout.activity_sign_up);
     }
 
-    public void onSignUp(View view) {
+    public void onSignUp(View view){
 
         //if the button if pressed, Android will receive the inputs.
-        if (view.getId() == R.id.signUp) {
+        if(view.getId() == R.id.signUp){
             EditText username = (EditText) findViewById(R.id.signUsername);
             EditText password = (EditText) findViewById(R.id.signPassword);
+            EditText confirmpass = (EditText) findViewById(R.id.editText2);
 
             String usernameInput = username.getText().toString();
             String passwordInput = password.getText().toString();
+            String confirm = confirmpass.getText().toString();
 
 
             // In case the EditTexts are blank, the statement is to warn the user to write some inputs.
-
-            if (!usernameInput.isEmpty() && !passwordInput.isEmpty()) {
+            if(!usernameInput.isEmpty() && !passwordInput.isEmpty()){
                 User user = new User();
                 user.setUsername(usernameInput);
-                user.setPassword(passwordInput);
 
-                dbManager.insert(user);
-                Toast.makeText(getApplicationContext(), "Register Complete", Toast.LENGTH_SHORT).show();
+                if(passwordInput.equals(confirm)){
+                    user.setPassword(passwordInput);
+                    dbManager.insert(user);
+                    Toast.makeText(getApplicationContext(), "Register Complete", Toast.LENGTH_SHORT).show();
 
-                Intent intent = new Intent(this, Login.class);
-                startActivity(intent);
-            } else {
+                    Intent intent = new Intent(this,Login.class);
+                    startActivity(intent);
+                }else{
+                    Toast.makeText(getApplicationContext(),"Please, Confirm password", Toast.LENGTH_SHORT).show();
+                }
+            }else{
                 Toast.makeText(getApplicationContext(), "Please Enter Username and Password", Toast.LENGTH_SHORT).show();
             }
+
         }
+
     }
 }

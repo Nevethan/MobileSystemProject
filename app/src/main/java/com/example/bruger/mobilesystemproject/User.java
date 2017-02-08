@@ -1,7 +1,8 @@
 package com.example.bruger.mobilesystemproject;
 
 /**
- * Created by Bruger on 20-11-2016.
+ * Created by Nevethan on 20-11-2016.
+    Inspiration from Nevethan's Bachelor Project (SmartBrace)
  */
 
 public class User {
@@ -35,3 +36,9 @@ public class User {
     }
 
 }
+
+
+
+
+
+

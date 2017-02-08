@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 /**
  * Created by Nevethan on 20-11-2016.
+    Inspiration from Nevethan's Bachelor Project (SmartBrace)
  */
 
 public class DatabaseManager extends SQLiteOpenHelper {
@@ -72,17 +73,14 @@ public class DatabaseManager extends SQLiteOpenHelper {
         pass = " ";
 
         if (cursor.moveToFirst()) {
-
             do {
                 user = cursor.getString(0);
-
 
                 if (user.equals(username)) {
                     pass = cursor.getString(1);
                     break;
                 }
             }
-
             while (cursor.moveToNext());
         }
         return pass;

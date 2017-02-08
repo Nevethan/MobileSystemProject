@@ -1,19 +1,21 @@
 package com.example.bruger.mobilesystemproject;
-
+/*
+    Inspiration from Nevethan's Bachelor Project (SmartBrace)
+ */
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import static android.widget.Toast.*;
 
 public class Login extends AppCompatActivity {
 
-
     DatabaseManager dbManager = new DatabaseManager(this);
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,21 +37,20 @@ public class Login extends AppCompatActivity {
         if(!userInput.isEmpty() && !passInput.isEmpty()){
             if(passInput.equals(pass)){
                 Intent intent = new Intent(this, Options.class);
-                startActivity(intent);
+                intent.putExtra("username", userInput);
+                startActivityForResult(intent,0);
             }else{
-                makeText(getApplicationContext(), "The Username or Password is wrong. Please try again", LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "The Username or Password is wrong. Please try again", Toast.LENGTH_SHORT).show();
             }
         }else{
-            makeText(getApplicationContext(), "Please Enter Username and Password", LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Please Enter Username and Password", Toast.LENGTH_SHORT).show();
         }
     }
 
     //Action to start the Activity_sign_up
-    public void register(View view){
+    public void signUp(View view){
         Intent intent = new Intent(this,SignUp.class);
         startActivity(intent);
     }
-
-
 
 }
